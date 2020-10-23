@@ -37,6 +37,7 @@ begin(){
     chroot /mnt grub-install $gdevice
     chroot /mnt update-grub
     echo "Tudo pronto, reinicie para testar"
+    exit
 }
 
 if [ $(id -u) != 0 ] 
