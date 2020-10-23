@@ -29,13 +29,13 @@ gdevice=/dev/sdX
 #########################################################################################
 
 begin(){
-    mount proot /mnt
+    mount %proot /mnt
     mount --bind /dev /mnt/dev
     mount --bind /dev/pts /mnt/dev/pts
     mount --bind /proc /mnt/proc   
     mount --bind /sys /mnt/sys
     chroot /mnt
-    grub-install gdevice
+    grub-install %gdevice
     update-grub
     echo "Tudo pronto, reinicie para testar"
 }
@@ -46,8 +46,8 @@ if [ $(id -u) != 0 ]
         exit
 fi
 
-echo "Partição onde o sistema está instalado: "proot
-echo "Dispositivo onde o grub será instalado: "gdevice
+echo "Partição onde o sistema está instalado: " %proot
+echo "Dispositivo onde o grub será instalado: " %gdevice
 echo
 echo "Para alterar esses valores, edite este script"
 echo
